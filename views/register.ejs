@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div><form id="form" method="post">
+        <h1>Register Now</h1>
+        <input type="text" name="name" id="name" placeholder="name">
+        <label id="l1">Name cannot be empty</label>
+        <input type="email" name="email"  id="email" value="<%=locals.email%>" placeholder="email">
+        <label id="l2"> Email cannot Empty </label>
+        <input type="password" name="password" id="pass" placeholder="password">
+        <label id="l3">Password cannot Empty</label>
+        <p class="error"><%= locals.message %></p>
+        <button id="submit" type="submit">Sign Up</button>
+        <p>Or</p>
+        <a id="logpg" href="/">Login</a>
+    </form></div>
+</body>
+<script>
+  document.getElementById("submit").addEventListener("click",(event) =>
+   {
+  const name = document.getElementById("name");
+   const email = document.getElementById("email");
+    const password = document.getElementById("pass");
+
+    let l1=document.getElementById('l1');
+    let l2=document.getElementById('l2');
+    let l3=document.getElementById('l3');
+
+    
+    if (name.value.trim() === "") {
+      l1.style.display="block";
+      name.style.borderColor = 'hsl(0, 59%, 61%)';
+      event.preventDefault();
+    }  
+    else{
+      l1.style.display="none";
+      name.style.borderColor = '';
+    }
+        
+    if (email.value.trim() === "") {
+      l2.style.display="block";
+      email.style.borderColor = 'hsl(0, 59%, 61%)';
+      event.preventDefault();
+   }   
+    else{
+      l2.style.display="none";
+      email.style.borderColor = '';
+    }
+
+    if (pass.value.trim() === "") {
+      l3.style.display="block";
+      pass.style.borderColor = 'hsl(0, 59%, 61%)';
+      event.preventDefault();
+    }   
+    else{
+      l3.style.display="none";
+      pass.style.borderColor = '';
+    }
+    
+     document.getElementById("form").submit();
+    
+ });
+</script>
+</html>

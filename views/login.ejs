@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div>
+      <form id="form" method="post">
+        <h1>Login Now</h1>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value="<%=locals.email%>"
+        />
+        <label id="l1">Email cannot be Empty</label>
+        <input type="password" name="password" id="pass" placeholder="Password" />
+        <label id="l2">Password cannot be empty</label>
+        <p class="error"><%= locals.message %></p>
+        <button id="submit" type="submit">Log In</button>
+        <p>Don't have an account?</p>
+        <a id="logpg" href="/api/v1/users/new">Register</a>
+      </form> 
+    </div>
+  </body>
+  <script>
+     document.getElementById("submit").addEventListener("click",(event) =>
+   {
+  
+   const email = document.getElementById("email");
+    const password = document.getElementById("pass");
+
+    let l1=document.getElementById('l1');
+    let l2=document.getElementById('l2');
+      
+    if (email.value.trim() === "") {
+      l1.style.display="block";
+      email.style.borderColor = 'hsl(0, 59%, 61%)';
+      event.preventDefault();
+   }   
+    else{
+      l1.style.display="none";
+      email.style.borderColor = '';
+    }
+
+    if (pass.value.trim() === "") {
+      l2.style.display="block";
+      pass.style.borderColor = 'hsl(0, 59%, 61%)';
+      event.preventDefault();
+    }   
+    else{
+      l2.style.display="none";
+      pass.style.borderColor = '';
+    }
+    
+     document.getElementById("form").submit();
+    
+ });
+  </script>
+</html>
